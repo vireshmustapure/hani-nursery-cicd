@@ -1,0 +1,49 @@
+<?php
+session_start();
+include("../config/db.php");
+
+$user = $_SESSION['user'];
+
+$sql = "SELECT * FROM users WHERE username='$user'";
+$data = $conn->query($sql)->fetch_assoc();
+?>
+
+<style>
+body{font-family:Segoe UI;background:#f5f7f6;margin:0;}
+.header{background:#1b5e20;color:white;padding:15px;text-align:center;}
+
+.form{
+    background:#fff;
+    padding:20px;
+    margin:20px;
+    border-radius:10px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+}
+button{
+    background:#1b5e20;
+    color:white;
+    padding:10px;
+    border:none;
+    width:100%;
+}
+</style>
+
+<div class="header">⚙️ Settings</div>
+
+<div class="form">
+<form method="POST" action="update_profile.php">
+
+<input type="text" name="username" value="<?php echo $data['username']; ?>">
+<input type="email" name="email" value="<?php echo $data['email']; ?>">
+<input type="text" name="phone" value="<?php echo $data['phone']; ?>">
+
+<button>Save Changes</button>
+
+</form>
+</div>

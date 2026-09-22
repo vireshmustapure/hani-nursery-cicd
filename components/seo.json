@@ -1,0 +1,34 @@
+{
+    "/blog/test/": {
+        "title": "7 Best Flowering Plants You Should Invest In Today",
+        "description": "test",
+        "image": "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=800&q=80",
+        "published_at": "2026-06-24T09:27",
+        "updated_at": "2026-06-24 09:29:57",
+        "author_id": "2"
+    },
+    "/blog/best-flowering-plants/": {
+        "title": "7 Best Flowering Plants You Should Invest In Today",
+        "description": "7 Best Flowering Plants You Should Invest In Today",
+        "image": "/uploads/c0b8e00827278fda8536c470e3a3afa6.webp",
+        "published_at": "2026-06-24T09:27",
+        "updated_at": "2026-06-24 09:41:54",
+        "author_id": "2"
+    },
+    "/blog/low-maintenance-indoor-plants/": {
+        "title": "Best Low Maintenance Indoor Plants for Beginners",
+        "description": "Best Low Maintenance Indoor Plants for Beginners",
+        "image": "/uploads/cbda080191c77eab20baf9cbcf9d6633.webp",
+        "published_at": "2026-06-24T09:53",
+        "updated_at": "2026-06-24 09:55:00",
+        "author_id": "2"
+    },
+    "/blog/garden-plants-for-every-outdoor-space/": {
+        "title": "Best Garden Plants for Every Outdoor Space",
+        "description": "Best Garden Plants for Every Outdoor Space",
+        "image": "/uploads/7c2c8ffa952c1370bbcb121142ff35a9.webp",
+        "published_at": "2026-06-24T09:57",
+        "updated_at": "2026-06-24 10:07:51",
+        "author_id": "2"
+    }
+}
