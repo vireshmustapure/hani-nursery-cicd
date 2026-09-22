@@ -1,0 +1,21 @@
+name: PHP CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check PHP
+        run: php -v
+
+      - name: Check PHP files
+        run: |
+          find . -name "*.php" -print0 | xargs -0 -n1 php -l
