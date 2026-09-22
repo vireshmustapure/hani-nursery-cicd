@@ -279,7 +279,7 @@ include '../../../includes/header.php';
         <!-- Right: Profile Info -->
         <div>
             <div class="dashboard-card">
-                <h3><i data-lucide="user"></i> Profile Information</h3>
+                <h3><i data-lucide="user"></i> Profile Info</h3>
                 <div class="profile-detail-row">
                     <span class="profile-detail-label">Name:</span>
                     <span class="profile-detail-value"><?php echo htmlspecialchars($user['name'] ?? ''); ?></span>
