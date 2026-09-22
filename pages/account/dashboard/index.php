@@ -274,7 +274,7 @@ include '../../../includes/header.php';
                     </a>
                 </div>
             </div>
-        </div>
+        
 
         <!-- Right: Profile Info -->
         <div>
