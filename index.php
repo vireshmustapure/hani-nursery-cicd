@@ -531,7 +531,7 @@ if ($settings_res) {
     <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=1200&q=80');"></div>
     
     <div class="hero-content">
-        <h2 class="serif-font">Bring Nature and Harmony Home <i data-lucide="sprout" style="width:36px; height:36px; vertical-align:middle; display:inline-block;"></i></h2>
+        <h2 class="serif-font">Bring Nature to Home <i data-lucide="sprout" style="width:36px; height:36px; vertical-align:middle; display:inline-block;"></i></h2>
         <a href="pages/shop/" class="btn-premium blink-btn">Shop Premium Plants</a>
         <h1>Best Plant Nursery and Gardening Center in Kalaburagi</h1>
     </div>
