@@ -1,9 +1,10 @@
-name: PHP CI/CD Pipeline
+name: PHP CI Pipeline
 
 on:
   push:
     branches:
       - main
+      - develop
 
   pull_request:
     branches:
@@ -14,20 +15,15 @@ permissions:
 
 jobs:
 
-  # ==========================
-  # CI - TEST
-  # ==========================
   test:
     name: Test PHP Application
     runs-on: ubuntu-latest
 
     steps:
 
-      # 1. Checkout source code
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      # 2. Setup PHP
       - name: Setup PHP 8.2
         uses: shivammathur/setup-php@v2
         with:
@@ -36,61 +32,19 @@ jobs:
           tools: composer
           coverage: none
 
-      # 3. Check PHP version
       - name: Verify PHP Version
         run: php -v
 
-      # 4. Install Composer dependencies
       - name: Install Dependencies
         if: hashFiles('composer.json') != ''
         run: composer install --no-interaction --prefer-dist --optimize-autoloader
 
-      # 5. Check PHP syntax
       - name: PHP Syntax Check
         run: |
           find . -type f -name "*.php" \
             -not -path "./vendor/*" \
             -print0 | xargs -0 -n1 php -l
 
-      # 6. Run PHPUnit tests if available
       - name: Run PHPUnit Tests
         if: hashFiles('phpunit.xml', 'phpunit.xml.dist') != ''
         run: vendor/bin/phpunit
-
-  # ==========================
-  # CD - DEPLOY
-  # ==========================
-  deploy:
-    name: Deploy to Production
-    needs: test
-    runs-on: ubuntu-latest
-
-    # Deploy only when code is pushed to main
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-
-    steps:
-
-      # 1. Checkout code
-      - name: Checkout Code
-        uses: actions/checkout@v4
-
-      # 2. Deploy using SSH
-      - name: Deploy to Server
-        uses: appleboy/ssh-action@v1.2.2
-        with:
-          host: ${{ secrets.SERVER_HOST }}
-          username: ${{ secrets.SERVER_USER }}
-          key: ${{ secrets.SERVER_SSH_KEY }}
-          port: ${{ secrets.SERVER_PORT }}
-          script: |
-            cd ${{ secrets.SERVER_PATH }}
-
-            echo "Starting deployment..."
-
-            git pull origin main
-
-            if [ -f composer.json ]; then
-              composer install --no-interaction --prefer-dist --optimize-autoloader
-            fi
-
-            echo "Deployment completed successfully."
